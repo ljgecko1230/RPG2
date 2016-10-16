@@ -18,12 +18,20 @@ public class Tutorial {
 		
 		System.out.println("There is a training dummy in front of you");
 		
-		String nextAction = Actions.getAction();
+		eventHandler(trainingDummy, player);
 		
+		System.out.println("Hello there");
+	}
+	
+	public static void eventHandler(Monster trainingDummy, Player player){
+		String nextAction = Actions.getAction();
 		if(nextAction.equals("1")){
 			Attack.doAttack(trainingDummy, player);
 		}
 		else{
+			System.out.println("That is invalid");
+			Actions.getAction();
+			eventHandler(trainingDummy, player);
 		}
 	}
 }
