@@ -5,27 +5,35 @@ public class Attack {
 		
 		while(true) {
 			if(monster.getDexterity() > player.getDexterity()){
+				DisplayStats.displayStats(player);
 				System.out.println("The monster attacks first");
 				attack(monster, player);
 				if (player.isDead()) {
 					break;
 				}
+				Enter.pressEnter();
+				DisplayStats.displayStats(player);
 				attack(player, monster);
 				if (monster.isDead()) {
 					gainExperience(player, monster);
 					break;
 				}
+				Enter.pressEnter();
 			} else {
+				DisplayStats.displayStats(player);
 				System.out.println("You attack first");
 				attack(player, monster);
 				if (monster.isDead()) {
 					gainExperience(player, monster);
 					break;
 				}
+				Enter.pressEnter();
+				DisplayStats.displayStats(player);
 				attack(monster, player);
 				if (player.isDead()) {
 					break;
 				}
+				Enter.pressEnter();
 			}
 		}
 	}

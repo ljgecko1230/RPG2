@@ -6,20 +6,22 @@ public class Tutorial {
 		System.out.println();
 		System.out.println("Welcome to the tutorial.");
 		
-		Monster ant = new Monster();
-		ant.setType("ant");
-		ant.setDexterity(1);
-		ant.setExperience(100);
-		ant.setHitPoints(2);
-		ant.setMaxHitPoints(2);
-		ant.setStrength(1);
+		Monster trainingDummy = new Monster();
+		trainingDummy.setType("training dummy");
+		trainingDummy.setDexterity(0);
+		trainingDummy.setExperience(100);
+		trainingDummy.setHitPoints(8);
+		trainingDummy.setMaxHitPoints(8);
+		trainingDummy.setStrength(0);
 		
 		DisplayStats.displayStats(player);
+		
+		System.out.println("There is a training dummy in front of you");
 		
 		String nextAction = Actions.getAction();
 		
 		if(nextAction.equals("1")){
-			Attack.doAttack(ant, player);
+			Attack.doAttack(trainingDummy, player);
 		}
 		else{
 		}
