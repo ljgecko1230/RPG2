@@ -1,14 +1,11 @@
 import java.util.Scanner;
 
-public class Actions {
-	public static void getAction(Player player, int monster){
-		Scanner input = new Scanner(System.in);
-		System.out.println("What will you do (1 = attack)");
-		String nextAction = input.nextLine();
-		if(nextAction.equals("1")){
-			if(monster == 1){
-				System.out.println("You attack");
-			}
-		}
+public class Actions { 
+	public static String getAction(){
+		Scanner action = new Scanner(System.in);
+		System.out.println("What will you do? (1 = attack)");
+		String nextAction = action.nextLine();
+		return nextAction;
 	}
 }
+

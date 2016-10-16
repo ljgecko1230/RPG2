@@ -9,4 +9,8 @@ public class Monster extends Character {
 	public String getType() {
 		return type;
 	}
+
+	public String getDisplayName() {
+		return type;
+	}
 }

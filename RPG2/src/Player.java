@@ -9,4 +9,8 @@ public class Player extends Character {
 	public String getName() {
 		return name;
 	}
+	
+	public String getDisplayName() {
+		return name;
+	}
 }

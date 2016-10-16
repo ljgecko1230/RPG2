@@ -63,4 +63,10 @@ public abstract class Character {
 	public int getLevelUpExperience() {
 		return levelUpExperience;
 	}
+	
+	public abstract String getDisplayName();
+	
+	public boolean isDead()	{
+		return hitPoints <= 0;
+	}
 }
