@@ -15,11 +15,11 @@ public class PlayerCreationWizard {
 		int statPoints = 10;
 		int strength = 1;
 		int dexterity = 1;
-		int hitPoints = 1;
+		int maxHitPoints = 1;
 		while(statPoints > 0){
 			System.out.println();
 			System.out.println("Press 1 for Strength (" + player.getStrength() + 
-					"), 2 for HP (" + player.getHitPoints() +"), or 3 for Dexterity " +
+					"), 2 for HP (" + player.getMaxHitPoints() +"), or 3 for Dexterity " +
 							"(" + player.getDexterity() + ").");
 			System.out.println("You have " + statPoints + " stat points");
 			String statInput = input.nextLine();
@@ -31,8 +31,8 @@ public class PlayerCreationWizard {
 			}
 			else if(statInput.equals("2")){
 				System.out.println("You added 1 to hit points");
-				hitPoints += 1;
-				player.setHitPoints(hitPoints);
+				maxHitPoints += 1;
+				player.setMaxHitPoints(maxHitPoints);
 				statPoints -= 1;
 			}
 			else if(statInput.equals("3")){
@@ -45,6 +45,7 @@ public class PlayerCreationWizard {
 				System.out.println("That is invalid");
 			}
 		}
+		IntitializeVariables.initializeVariables(player);
 		return player;
 	}
 }
