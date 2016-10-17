@@ -4,6 +4,10 @@ public class Adventure {
 	{
 		Monster killerBear = new Monster();
 		killerBear.setType("killer bear");
+		killerBear.setHitPoints(14);
+		killerBear.setExperience(300);
+		killerBear.setStrength(2);
+		killerBear.setDexterity(4);
 		
 		
 		System.out.println("Running adventure for " + player.getName() + "...");
@@ -25,9 +29,18 @@ public class Adventure {
 		int trueBackwards = 0;
 		int trueLeft = 0;
 		int trueMonster = 0;
-		eventHandler(killerBear, player, trueMonster, trueForwards, trueLeft, trueRight, trueBackwards);
+		eventHandler(killerBear, player, trueMonster, 
+				trueForwards, trueLeft, trueRight, trueBackwards);
 		
 		System.out.println("You exit the tent");
+		System.out.println("You see a large bear looming over you...");
+		trueForwards = 0;
+		trueRight = 0;
+		trueBackwards = 0;
+		trueLeft = 0;
+		trueMonster = 1;
+		eventHandler(killerBear, player, trueMonster, 
+				trueForwards, trueLeft, trueRight, trueBackwards);
 	}
 	
 	public static void eventHandler(Monster monster, Player player, int trueMonster, 

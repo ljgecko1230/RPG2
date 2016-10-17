@@ -55,6 +55,7 @@ public class Attack {
 			
 			if(player.getExperience() >= player.getLevelUpExperience()){
 				player.setLevel(player.getLevel() + 1);
+				player.setExperience(player.getExperience() - player.getLevelUpExperience());
 				player.setLevelUpExperience(player.getLevelUpExperience() * 2);
 				System.out.println("Level up. You are now level " + player.getLevel());
 		}
