@@ -17,21 +17,44 @@ public class Tutorial {
 		DisplayStats.displayStats(player);
 		
 		System.out.println("There is a training dummy in front of you");
+		int trueForwards = 0;
+		int trueMonster = 1;
+		eventHandler(trainingDummy, player, trueMonster, trueForwards);
 		
-		eventHandler(trainingDummy, player);
+		System.out.println("Good job. Now we will try moving.");
+		System.out.println();
+		System.out.println("You are in a hallway with a door at the end of it. It only leads north (Forwards)");
 		
-		System.out.println("Hello there");
+		trueForwards = 1;
+		trueMonster = 0;
+		eventHandler(trainingDummy, player, trueMonster, trueForwards);
+		
+		System.out.println("Nice. You moved forwards. Now you are an expert at this game. I think you are ready to begin.");
 	}
 	
-	public static void eventHandler(Monster trainingDummy, Player player){
+	public static void eventHandler(Monster trainingDummy, Player player, int trueMonster, int trueForwards){
 		String nextAction = Actions.getAction();
 		if(nextAction.equals("1")){
-			Attack.doAttack(trainingDummy, player);
+			if(trueMonster == 1){
+				Attack.doAttack(trainingDummy, player);
+			}
+			else{
+				System.out.println("That is invalid");
+				eventHandler(trainingDummy, player, trueMonster, trueForwards);
+			}
+		}
+		else if(nextAction.equals("2")){
+			if(trueForwards == 1){
+				System.out.println("You move forwards");
+			}
+			else{
+				System.out.println("That is invalid");
+				eventHandler(trainingDummy, player, trueMonster, trueForwards);
+			}
 		}
 		else{
 			System.out.println("That is invalid");
-			Actions.getAction();
-			eventHandler(trainingDummy, player);
+			eventHandler(trainingDummy, player, trueMonster, trueForwards);
 		}
 	}
 }
