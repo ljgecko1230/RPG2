@@ -1,5 +1,10 @@
 
 public class Adventure {
+	static int forwards = 1;
+	static int backwards = 0;
+	static int left = 0;
+	static int right = 0;
+	static int attack = 0;
 	public static void startAdventure(Player player)
 	{
 		Monster killerBear = new Monster();
@@ -22,47 +27,52 @@ public class Adventure {
 		System.out.println("You hear a strange noise coming from outside.");
 		System.out.println();
 		System.out.println("You can exit the tent by moving forwards.");
-		Actions.getAction();
-		
-		int trueForwards = 1;
-		int trueRight = 0;
-		int trueBackwards = 0;
-		int trueLeft = 0;
-		int trueMonster = 0;
-		eventHandler(killerBear, player, trueMonster, 
-				trueForwards, trueLeft, trueRight, trueBackwards);
-		
+		String nextAction = Actions.getAction();
+		forwards = 1;
+		backwards = 0;
+		left = 0;
+		right = 0;
+		attack = 0;
+		checkAction(nextAction);
 		System.out.println("You exit the tent");
 		System.out.println("You see a large bear looming over you...");
-		trueForwards = 0;
-		trueRight = 0;
-		trueBackwards = 0;
-		trueLeft = 0;
-		trueMonster = 1;
-		eventHandler(killerBear, player, trueMonster, 
-				trueForwards, trueLeft, trueRight, trueBackwards);
 	}
-	
-	public static void eventHandler(Monster monster, Player player, int trueMonster, 
-			int trueForwards, int trueLeft, int trueRight, int trueBackwards){
-		String nextAction = Actions.getAction();
+	public static void checkAction(String nextAction){
+		int invalid = 0;
 		if(nextAction.equals("1")){
-			if(trueMonster == 1){
-				Attack.doAttack(monster, player);
+			if(attack == 0){
+				System.out.println("That is invalid");
+				invalid = 1;
 			}
 			else{
-				System.out.println("That is invalid");
-				eventHandler(monster, player, trueMonster, trueForwards, trueLeft, trueRight, trueBackwards);
+				System.out.println("You attack");
 			}
 		}
 		else if(nextAction.equals("2")){
-			if(trueForwards == 1){
+			if(forwards == 0){
+				System.out.println("That is invalid");
+				invalid = 1;
+			}
+			else{
 				System.out.println("You move forwards");
+			}
+		}
+		else if(nextAction.equals("3")){
+			if(backwards == 0){
+				System.out.println("That is invalid");
+				invalid = 1;
+			}
+			else{
+				System.out.println("You move backwards");
 			}
 		}
 		else{
 			System.out.println("That is invalid");
-			eventHandler(monster, player, trueMonster, trueForwards, trueLeft, trueRight, trueBackwards);
+			invalid = 1;
+		}
+		if(invalid == 1){
+			nextAction = Actions.getAction();
+			checkAction(nextAction);
 		}
 	}
 }

@@ -17,28 +17,26 @@ public class PlayerCreationWizard {
 		int dexterity = 1;
 		int maxHitPoints = 1;
 		while(statPoints > 0){
+			String pointType = "Strength";
 			System.out.println();
-			System.out.println("Press 1 for Strength (" + player.getStrength() + 
+			System.out.println("Press 1 for " + pointType + " (" + player.getStrength() + 
 					"), 2 for HP (" + player.getMaxHitPoints() +"), or 3 for Dexterity " +
 							"(" + player.getDexterity() + ").");
 			System.out.println("You have " + statPoints + " stat points");
 			String statInput = input.nextLine();
 			if(statInput.equals("1")){
-				System.out.println("You added 1 to damage");
-				strength += 1;
-				player.setStrength(strength);
+				System.out.println("You added 1 to " + pointType);
+				player.setStrength(player.getStrength() + 1);
 				statPoints -= 1;
 			}
 			else if(statInput.equals("2")){
 				System.out.println("You added 1 to hit points");
-				maxHitPoints += 1;
-				player.setMaxHitPoints(maxHitPoints);
+				player.setMaxHitPoints(player.getMaxHitPoints() + 1);
 				statPoints -= 1;
 			}
 			else if(statInput.equals("3")){
 				System.out.println("You added 1 to dexterity");
-				dexterity += 1;
-				player.setDexterity(dexterity);
+				player.setDexterity(player.getDexterity() + 1);
 				statPoints -= 1;
 			}
 			else{
