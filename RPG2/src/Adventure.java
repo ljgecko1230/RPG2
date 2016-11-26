@@ -9,20 +9,21 @@ public class Adventure {
 	{
 		Monster killerBear = new Monster();
 		killerBear.setType("killer bear");
-		killerBear.setHitPoints(14);
+		killerBear.setHitPoints(8);
 		killerBear.setExperience(300);
 		killerBear.setStrength(2);
-		killerBear.setDexterity(4);
-		
+		killerBear.setDexterity(2);
 		
 		System.out.println("Running adventure for " + player.getName() + "...");
 		System.out.println();
+		Enter.pressEnter();
+		ClearConsole.clearConsole();
 		DisplayStats.displayStats(player);
 		System.out.println("Welcome to the adventure. This is not part of the tutorial.");
 		System.out.println("This is now the actual game.");
 		Enter.pressEnter();
+		ClearConsole.clearConsole();
 		DisplayStats.displayStats(player);
-		System.out.println();
 		System.out.println("You wake up in your tent. You have been camping all weekend.");
 		System.out.println("You hear a strange noise coming from outside.");
 		System.out.println();
@@ -33,11 +34,32 @@ public class Adventure {
 		left = 0;
 		right = 0;
 		attack = 0;
-		checkAction(nextAction);
+		int checkNextAction = checkAction(nextAction, player);
+		ClearConsole.clearConsole();
 		System.out.println("You exit the tent");
 		System.out.println("You see a large bear looming over you...");
+		nextAction = Actions.getAction();
+		forwards = 0;
+		backwards = 0;
+		left = 0;
+		right = 0;
+		attack = 1;
+		checkNextAction = checkAction(nextAction, player);
+		Attack.doAttack(killerBear, player);
+		Enter.pressEnter();
+		ClearConsole.clearConsole();
+		DisplayStats.displayStats(player);
+		System.out.println("Good job! I will now heal you.");
+		System.out.println();
+		System.out.println("Your health was restored.");
+		player.setHitPoints(player.getMaxHitPoints());
+		DisplayStats.displayStats(player);
+		Enter.pressEnter();
+		ClearConsole.clearConsole();
+		DisplayStats.displayStats(player);
 	}
-	public static void checkAction(String nextAction){
+	public static int checkAction(String nextAction, Player player){
+		int checkNextAction = 0;
 		int invalid = 0;
 		if(nextAction.equals("1")){
 			if(attack == 0){
@@ -46,6 +68,7 @@ public class Adventure {
 			}
 			else{
 				System.out.println("You attack");
+				checkNextAction = 1;
 			}
 		}
 		else if(nextAction.equals("2")){
@@ -55,6 +78,7 @@ public class Adventure {
 			}
 			else{
 				System.out.println("You move forwards");
+				checkNextAction = 2;
 			}
 		}
 		else if(nextAction.equals("3")){
@@ -64,6 +88,7 @@ public class Adventure {
 			}
 			else{
 				System.out.println("You move backwards");
+				checkNextAction = 3;
 			}
 		}
 		else{
@@ -72,7 +97,11 @@ public class Adventure {
 		}
 		if(invalid == 1){
 			nextAction = Actions.getAction();
-			checkAction(nextAction);
+			Enter.pressEnter();
+			ClearConsole.clearConsole();
+			DisplayStats.displayStats(player);
+			checkAction(nextAction, player);
 		}
+		return checkNextAction;
 	}
 }

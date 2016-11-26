@@ -14,13 +14,17 @@ public class Tutorial {
 		trainingDummy.setMaxHitPoints(8);
 		trainingDummy.setStrength(0);
 		
+		Enter.pressEnter();
+		ClearConsole.clearConsole();
 		DisplayStats.displayStats(player);
-		
 		System.out.println("There is a training dummy in front of you");
 		int trueForwards = 0;
 		int trueMonster = 1;
 		eventHandler(trainingDummy, player, trueMonster, trueForwards);
 		
+		Enter.pressEnter();
+		ClearConsole.clearConsole();
+		DisplayStats.displayStats(player);
 		System.out.println("Good job. Now we will try moving.");
 		System.out.println();
 		System.out.println("You are in a hallway with a door at the end of it. It only leads north (Forwards)");
@@ -28,7 +32,9 @@ public class Tutorial {
 		trueForwards = 1;
 		trueMonster = 0;
 		eventHandler(trainingDummy, player, trueMonster, trueForwards);
-		
+		Enter.pressEnter();
+		ClearConsole.clearConsole();
+		DisplayStats.displayStats(player);
 		System.out.println("Nice. You moved forwards. Now you are an expert at this game. I think you are ready to begin.");
 	}
 	

@@ -1,6 +1,7 @@
 
 public class Attack {
 	public static void doAttack(Monster monster, Player player){
+		ClearConsole.clearConsole();
 		System.out.println("You attack the " + monster.getType());
 		
 		while(true) {
@@ -12,6 +13,7 @@ public class Attack {
 					break;
 				}
 				Enter.pressEnter();
+				ClearConsole.clearConsole();
 				DisplayStats.displayStats(player);
 				attack(player, monster);
 				if (monster.isDead()) {
@@ -19,6 +21,8 @@ public class Attack {
 					break;
 				}
 				Enter.pressEnter();
+				ClearConsole.clearConsole();
+				DisplayStats.displayStats(player);
 			} else {
 				DisplayStats.displayStats(player);
 				System.out.println("You attack first");
@@ -28,12 +32,15 @@ public class Attack {
 					break;
 				}
 				Enter.pressEnter();
+				ClearConsole.clearConsole();
 				DisplayStats.displayStats(player);
 				attack(monster, player);
 				if (player.isDead()) {
 					break;
 				}
 				Enter.pressEnter();
+				ClearConsole.clearConsole();
+				DisplayStats.displayStats(player);
 			}
 		}
 	}
@@ -57,6 +64,9 @@ public class Attack {
 				player.setLevel(player.getLevel() + 1);
 				player.setExperience(player.getExperience() - player.getLevelUpExperience());
 				player.setLevelUpExperience(player.getLevelUpExperience() * 2);
+				player.setMaxHitPoints(player.getMaxHitPoints() + 3);
+				player.setHitPoints(player.getMaxHitPoints());
+				player.setStrength(player.getStrength() + 1);
 				System.out.println("Level up. You are now level " + player.getLevel());
 		}
 	}

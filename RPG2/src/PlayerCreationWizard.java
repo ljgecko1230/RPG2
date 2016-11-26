@@ -42,6 +42,8 @@ public class PlayerCreationWizard {
 			else{
 				System.out.println("That is invalid");
 			}
+			Enter.pressEnter();
+			ClearConsole.clearConsole();
 		}
 		IntitializeVariables.initializeVariables(player);
 		return player;
