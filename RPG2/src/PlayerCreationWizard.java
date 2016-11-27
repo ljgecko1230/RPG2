@@ -40,10 +40,9 @@ public class PlayerCreationWizard {
 				statPoints -= 1;
 			}
 			else{
+				ClearConsole.clearConsole();
 				System.out.println("That is invalid");
-			}
-			Enter.pressEnter();
-			ClearConsole.clearConsole();
+			}	
 		}
 		IntitializeVariables.initializeVariables(player);
 		return player;

@@ -2,8 +2,10 @@
 public class Attack {
 	public static void doAttack(Monster monster, Player player){
 		ClearConsole.clearConsole();
+		DisplayStats.displayStats(player);
 		System.out.println("You attack the " + monster.getType());
-		
+		Enter.pressEnter();
+		ClearConsole.clearConsole();
 		while(true) {
 			if(monster.getDexterity() > player.getDexterity()){
 				DisplayStats.displayStats(player);

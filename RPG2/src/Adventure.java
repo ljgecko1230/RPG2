@@ -57,6 +57,15 @@ public class Adventure {
 		Enter.pressEnter();
 		ClearConsole.clearConsole();
 		DisplayStats.displayStats(player);
+		System.out.println("The bear is dead. The forest ahead is very"
+				+ " quiet. Too quiet.");
+		nextAction = Actions.getAction();
+		forwards = 1;
+		backwards = 0;
+		left = 0;
+		right = 0;
+		attack = 0;
+		checkNextAction = checkAction(nextAction, player);
 	}
 	public static int checkAction(String nextAction, Player player){
 		int checkNextAction = 0;
@@ -96,10 +105,10 @@ public class Adventure {
 			invalid = 1;
 		}
 		if(invalid == 1){
-			nextAction = Actions.getAction();
 			Enter.pressEnter();
 			ClearConsole.clearConsole();
 			DisplayStats.displayStats(player);
+			nextAction = Actions.getAction();
 			checkAction(nextAction, player);
 		}
 		return checkNextAction;
