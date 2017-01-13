@@ -70,6 +70,15 @@ public class Adventure {
 		Enter.pressEnter();
 		ClearConsole.clearConsole();
 		DisplayStats.displayStats(player);
+		System.out.println("You are in the forest. To your right you see a small log cabin, and to your left you"
+				+ " can see a stream");
+		nextAction = Actions.getAction();
+		forwards = 0;
+		backwards = 0;
+		left = 1;
+		right = 1;
+		attack = 0;
+		checkNextAction = checkAction(nextAction, player);
 	}
 	public static int checkAction(String nextAction, Player player){
 		int checkNextAction = 0;
