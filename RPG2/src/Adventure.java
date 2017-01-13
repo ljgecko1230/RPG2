@@ -1,6 +1,6 @@
 
 public class Adventure {
-	static int forwards = 1;
+	static int forwards = 0;
 	static int backwards = 0;
 	static int left = 0;
 	static int right = 0;
@@ -66,6 +66,10 @@ public class Adventure {
 		right = 0;
 		attack = 0;
 		checkNextAction = checkAction(nextAction, player);
+		System.out.println("You enter the forest.");
+		Enter.pressEnter();
+		ClearConsole.clearConsole();
+		DisplayStats.displayStats(player);
 	}
 	public static int checkAction(String nextAction, Player player){
 		int checkNextAction = 0;

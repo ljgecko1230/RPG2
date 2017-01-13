@@ -19,6 +19,9 @@ public class Attack {
 				DisplayStats.displayStats(player);
 				attack(player, monster);
 				if (monster.isDead()) {
+					Enter.pressEnter();
+					ClearConsole.clearConsole();
+					DisplayStats.displayStats(player);
 					gainExperience(player, monster);
 					break;
 				}
@@ -30,6 +33,9 @@ public class Attack {
 				System.out.println("You attack first");
 				attack(player, monster);
 				if (monster.isDead()) {
+					Enter.pressEnter();
+					ClearConsole.clearConsole();
+					DisplayStats.displayStats(player);
 					gainExperience(player, monster);
 					break;
 				}
