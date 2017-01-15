@@ -79,6 +79,9 @@ public class Adventure {
 		right = 1;
 		attack = 0;
 		checkNextAction = checkAction(nextAction, player);
+		if(checkNextAction == 1){
+			
+		}
 	}
 	public static int checkAction(String nextAction, Player player){
 		int checkNextAction = 0;
@@ -111,6 +114,26 @@ public class Adventure {
 			else{
 				System.out.println("You move backwards");
 				checkNextAction = 3;
+			}
+		}
+		else if(nextAction.equals("4")){
+			if(left == 0){
+				System.out.println("That is invalid");
+				invalid = 1;
+			}
+			else{
+				System.out.println("You move right");
+				checkNextAction = 4;
+			}
+		}
+		else if(nextAction.equals("5")){
+			if(right == 0){
+				System.out.println("That is invalid");
+				invalid = 1;
+			}
+			else{
+				System.out.println("You move left");
+				checkNextAction = 5;
 			}
 		}
 		else{

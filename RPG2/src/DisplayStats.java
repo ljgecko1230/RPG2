@@ -1,7 +1,7 @@
 
 public class DisplayStats {
 	public static void displayStats(Player player){
-		System.out.println();
+		ClearConsole.clearConsole();
 		System.out.println("Stats:");
 		System.out.println("HP: " + player.getHitPoints() + "/" + player.getMaxHitPoints());
 		System.out.println("STRENGTH: " + player.getStrength());

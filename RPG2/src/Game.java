@@ -6,6 +6,7 @@ public class Game {
 	{
 		player = PlayerCreationWizard.createPlayer();
 		Tutorial.startTutorial(player);
-		Adventure.startAdventure(player);
+//		Adventure.startAdventure(player);
+		NewAdventure.newAdventure(player);
 	}
 }
